@@ -1,2 +1,2 @@
 syntax = "proto2";
-package schema.improbable;
+package schema.improbable.player;
