@@ -1,0 +1,10 @@
+syntax = "proto2";
+package schema.improbable.player;
+
+import "improbable/entity_state.proto";
+
+message LocalPlayerCheckData {}
+
+extend improbable.EntityState {
+    optional LocalPlayerCheckData localPlayerCheck = 1001;
+}

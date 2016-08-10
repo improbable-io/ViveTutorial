@@ -1,0 +1,70 @@
+==========> Opened at 2016-08-10 14:05:01.4637287 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Windows --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Windows --relativePath=. .\** --compression=False --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Windows\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Windows.zip
+info 'sdk.exe file zip .\**' finished duration=0.7s category=success
+==========> Opened at 2016-08-10 14:05:09.2170752 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityFSim@Windows --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityFSim@Windows --relativePath=. .\** --compression=False --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityFSim@Windows\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityFSim@Windows.zip
+info 'sdk.exe file zip .\**' finished category=success duration=0.5s
+==========> Opened at 2016-08-10 14:05:30.9406766 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Windows --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Windows --relativePath=. .\** --compression=True --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Windows\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Windows.zip
+info 'sdk.exe file zip .\**' finished duration=4.4s category=success
+==========> Opened at 2016-08-10 14:05:40.152163 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Mac --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Mac --relativePath=. .\** --compression=True --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Mac\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Mac.zip
+info 'sdk.exe file zip .\**' finished duration=1.9s category=success
+==========> Opened at 2016-08-10 14:05:47.6286097 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityFSim@Linux --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityFSim@Linux --relativePath=. .\** --compression=True --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityFSim@Linux\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityFSim@Linux.zip
+info 'sdk.exe file zip .\**' finished category=success duration=1.6s
+==========> Opened at 2016-08-10 14:13:47.8533692 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Windows --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Windows --relativePath=. .\** --compression=False --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Windows\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Windows.zip
+info 'sdk.exe file zip .\**' finished duration=0.9s category=success
+==========> Opened at 2016-08-10 14:13:55.6834345 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityFSim@Windows --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityFSim@Windows --relativePath=. .\** --compression=False --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityFSim@Windows\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityFSim@Windows.zip
+info 'sdk.exe file zip .\**' finished duration=0.4s category=success
+==========> Opened at 2016-08-10 14:14:15.8744065 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Windows --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Windows --relativePath=. .\** --compression=True --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Windows\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Windows.zip
+info 'sdk.exe file zip .\**' finished duration=4.5s category=success
+==========> Opened at 2016-08-10 14:14:24.6348413 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Mac --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Mac --relativePath=. .\** --compression=True --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityClient@Mac\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityClient@Mac.zip
+info 'sdk.exe file zip .\**' finished duration=1.8s category=success
+==========> Opened at 2016-08-10 14:14:32.1304459 +0100 BST
+debug Executing [C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2\sdk.exe file zip --output=C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityFSim@Linux --basePath=C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityFSim@Linux --relativePath=. .\** --compression=True --log_file=zip_toolbelt.log]
+debug Current directory = C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity
+debug TOOLBELT_PATH = C:\Users\charlesmicou\AppData\Local\.improbable\bin\plugins\sdk\7.0.2
+info Finding C:\Users\charlesmicou\Private\everything\applications\blankproject\workers\unity\build\worker\UnityFSim@Linux\** category=heading
+info Wrote C:\Users\charlesmicou\Private\everything\applications\blankproject\build\assembly\worker\UnityFSim@Linux.zip
+info 'sdk.exe file zip .\**' finished duration=1.6s category=success

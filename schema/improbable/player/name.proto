@@ -1,0 +1,12 @@
+syntax = "proto2";
+package schema.improbable.player;
+
+import "improbable/entity_state.proto";
+
+message NameData {
+    optional string value = 1;
+}
+
+extend improbable.EntityState {
+    optional NameData name = 1000;
+}
