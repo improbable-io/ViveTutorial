@@ -1,0 +1,61 @@
+Notes to self on vive tutorial extensions:
+
+Unity joints:
+
+Why do we use joints? -> They're Unity's built in feature for making the motion of
+one object depend on another. You could do this with transforms or parenting, but this
+is better because:
+1. it's safer (in terms of coding best practices). Parenting could result in functions
+getting called on the child by mistake, and potentially result in desync between the 
+client and the server.
+2. it is part of Unity's physics engine, so 'plays nice' with other physical interactions.
+	
+	Started by making some things to pick up:
+		- Balls in Unity
+			- Needs a transform nature
+			- Needs a rigidbody
+			- Scale and colour to taste
+		- Ball Nature
+		- Ball spawner worldapp
+		- Launch config to start worldapp
+		
+	Check that we're doing collision correctly:
+		- Make hands light up on collision (indicate hit)
+			- Add a collider to each hand (in this case I just use a sphere collider on the spheres that make up the hand)
+			- Make the colliders triggers (tick the 'IsTrigger') box
+			- Make two materials for the hands: one for touching and one for not touching
+			- Put the not touching one on the hands for now
+			- Add a script to the hand GrabItemsBehaviour
+				- Public materials that determine touching or not touching (set in editor by drag and drop)
+				- Public renderer to change (drag hand model in)
+				- OnTriggerEnter/Exit routines to change the colour
+			
+	Listen to the collision:
+		- Expose the gameobject of whatever we're colliding with
+		- In InputSender
+			- Listen for trigger pull
+			- Get the relevant gameobject's entityId
+			- Add PickUpEvent and DropEvent to schema and run codegen
+			
+			
+			
+		- Listen for trigger pull on controller
+			- Add a public SteamVR_TrackedObject to the GrabItemsBehaviour
+			- Drag on the corresponding controller for each hand in the editor
+			- If the trigger is being pulled: provide haptic feedback
+		- Make this produce a stateevent
+			- The state event holds target entity id and which hand is trying to do the action
+			- Send a message to pick up/drop from within InputSender
+			- InputReceiver needs to handle receiving this
+		- Add Unity Joints to the player hands and connect them up to InputSender/Receiver
+			- This will need rigidbody on your hands, set this to 'Is Kinematic = true'
+			  and 'Use Gravity = false', so that your hands don't fall away
+	
+	Test it!
+		- Though really this tutorial is done in a way that you could have been checking as you go
+		- You should be able to walk around, pick up the balls, move them and drop them
+		
+	But wait! There's lag
+		- This segues really nicely into doing CSP
+	
+	

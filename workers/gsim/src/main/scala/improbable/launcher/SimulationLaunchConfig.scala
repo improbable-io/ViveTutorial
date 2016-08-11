@@ -5,7 +5,7 @@ import improbable.fapi.bridge.CompositeBridgeSettingsResolver
 import improbable.fapi.engine.CompositeEngineDescriptorResolver
 import improbable.papi.worldapp.WorldApp
 import improbable.unity.fabric.engine.DownloadableUnityConstraintToEngineDescriptorResolver
-import improbable.apps.ClientEntityLifeCycleManager
+import improbable.apps.{BallSpawnManager, ClientEntityLifeCycleManager}
 
 /**
   * These are the engine startup configs.
@@ -21,7 +21,7 @@ object AutomaticWorkerStartup extends SimulationLaunchConfigWithApps(dynamically
   * Use this class to specify the list of apps you want to run when the game starts.
   */
 class SimulationLaunchConfigWithApps(dynamicallySpoolUpWorkers: Boolean) extends
-  SimulationLaunchConfig(appsToStart = Seq(classOf[ClientEntityLifeCycleManager]),
+  SimulationLaunchConfig(appsToStart = Seq(classOf[ClientEntityLifeCycleManager], classOf[BallSpawnManager]),
     dynamicallySpoolUpWorkers)
 
 class SimulationLaunchConfig(appsToStart: Seq[Class[_ <: WorldApp]],

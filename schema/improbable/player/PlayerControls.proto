@@ -10,9 +10,20 @@ message MovementDirectionData {
   optional improbable.math.Vector3d movementDirection = 1;
 }
 
+message PickUpObjectData {
+  optional int64 pickUpTargetId = 1 [(improbable.entity_id) = true];
+  optional string hand = 2;
+}
+
+message DropObjectData {
+  optional int64 dropTargetId = 1 [(improbable.entity_id) = true];
+  optional string hand = 2;
+}
 
 message PlayerControlsData {
   repeated MovementDirectionData moveEvent = 1 [(improbable.state_event) = true];
+  repeated PickUpObjectData pickUpEvent = 8 [(improbable.state_event) = true];
+  repeated DropObjectData dropEvent = 9 [(improbable.state_event) = true];
 
   optional improbable.math.Vector3d leftHandPosition = 2;
   optional improbable.math.Vector3d leftHandRotation = 3;
