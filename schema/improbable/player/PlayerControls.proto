@@ -20,10 +20,15 @@ message DropObjectData {
   optional string hand = 2;
 }
 
+message GrabbingHeartBeatData {
+  optional int64 heldTargetId = 1 [(improbable.entity_id) = true];
+}
+
 message PlayerControlsData {
   repeated MovementDirectionData moveEvent = 1 [(improbable.state_event) = true];
   repeated PickUpObjectData pickUpEvent = 8 [(improbable.state_event) = true];
   repeated DropObjectData dropEvent = 9 [(improbable.state_event) = true];
+  repeated GrabbingHeartBeatData grabbingHeartbeatEvent = 10 [(improbable.state_event) = true];
 
   optional improbable.math.Vector3d leftHandPosition = 2;
   optional improbable.math.Vector3d leftHandRotation = 3;

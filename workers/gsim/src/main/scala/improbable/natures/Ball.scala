@@ -1,5 +1,6 @@
 package improbable.natures
 
+import improbable.behaviours.HandleClientControlBehaviour
 import improbable.corelib.natures.{BaseNature, NatureApplication, NatureDescription}
 import improbable.corelibrary.transforms.TransformNature
 import improbable.math.{Coordinates, Vector3d}
@@ -11,7 +12,7 @@ object Ball extends NatureDescription {
   override val dependencies = Set[NatureDescription](BaseNature, TransformNature)
 
   override def activeBehaviours: Set[EntityBehaviourDescriptor] = {
-    Set.empty
+    Set(descriptorOf[HandleClientControlBehaviour])
   }
 
   def apply(spawnPosition: Coordinates): NatureApplication = {

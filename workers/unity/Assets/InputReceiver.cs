@@ -59,10 +59,13 @@ public class InputReceiver : MonoBehaviour
     {
         if (target.Hand == "left")
         {
+
+            LeftHand.GetComponent<FixedJoint>().connectedBody.velocity = LeftHand.GetComponent<TrackPositionBehaviour>().SmoothedVelocity;
             LeftHand.GetComponent<FixedJoint>().connectedBody = null;
         }
         else if (target.Hand == "right")
         {
+            RightHand.GetComponent<FixedJoint>().connectedBody.velocity = RightHand.GetComponent<TrackPositionBehaviour>().SmoothedVelocity;
             RightHand.GetComponent<FixedJoint>().connectedBody = null;
         }
         else

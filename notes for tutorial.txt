@@ -57,5 +57,78 @@ client and the server.
 		
 	But wait! There's lag
 		- This segues really nicely into doing CSP
-	
-	
+
+
+A note about throwing:
+If you try to throw the ball, it will drop straight down. This is because we're
+moving it around by fixing it to the transform of the hand. The hand jumps around
+according to the controller positions, and doesn't have the concept of a velocity.
+If you want to throw the ball, you should set its velocity to release velocity
+just after you release it.
+This is fixed with the trackpositionbehaviour (code in next tutorial branch).
+Alternatively, you could make the implementation of tracking the vive controllers
+use the rigidbody moveposition functionality, rather than setting the transform's
+position.
+
+
+Client side authority section:
+
+What are we trying to fix?
+In the previous demo, everything was server-side authority.
+This means that following an input, you'd have to wait for the
+message to be sent to the server, then for the server to process
+the physics, then for the result to be sent back.
+This is laggy, and the results don't come back at 60fps, so looks
+choppy.
+
+How can we resolve this?
+Client-side authority.
+Whenever a player picks something up to move it, we're going to
+delegate the state to the player.
+
+What are the risks?
+1 Cheating: any client-side system might falsely report data, and
+            this could be exploited by cheaters in the game
+2 Weird Physics: things now look laggy from the perspective of 
+	        	 the server if a player has high latency
+
+How could we address the risks?
+1 Sanity checking inputs: this will depend on your game,
+						  and won't be covered here
+2 Client-side prediction instead of authority
+
+
+Making client side authority:
+
+- RequestClientControlBehaviour on the GSIM:
+	- Watch the player controls, when there's a pickup event, send a message to the 
+	  picked up entity telling it to delegate authority to the client
+	- Remember to add this to the player nature
+- HandleClientControlBehaviour on the GSIM:
+	- Listen to messages. When receive a message for a request for behaviour, give
+	  use the transform interface to give authority to the client.
+	 - Add this behaviour to the ball
+
+
+A new problem arises: when do we give authority back?
+- If a client disconnects while it had authority over a state, we need to make sure
+  that it doesn't just hang in the air
+- If a client is no longer interacting with a ball, authority should go back to physics
+- What happens if two players try to pick up the same ball?
+
+One nice thing that already happens:
+- If a different player grabs the ball, they'll instantly gain authority over it. So
+  the last question is a non-issue.
+
+
+Solution: We add some code to make a 'heartbeat':
+- In Schema:
+	- Add a new state event to player controls: grabbingheartbeat
+- In Unity:
+	- Every second that an entity is being held, make a state event
+	  to confirm this (use coroutine)
+- In GSim:
+	- The player controls handling passes on a message to the ball
+	- In HandleClientControlBehaviour, if we haven't received one of
+	  these messages within the last few seconds, reassign authority
+	   --> do this by scheduling messages to ourselves, a little involved

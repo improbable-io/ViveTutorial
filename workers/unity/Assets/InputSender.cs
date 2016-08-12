@@ -20,6 +20,10 @@ public class InputSender : MonoBehaviour
 
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
 
+    void Start() {
+        //Maintaining authority over objects
+        InvokeRepeating("sendHeartbeats", 1.0f, 1.0f);
+    }
 
     void Update()
     {
@@ -39,7 +43,7 @@ public class InputSender : MonoBehaviour
         }
 
         //Picking up objects
-        if (leftDevice != null && leftDevice.GetPress(triggerButton))
+        if (leftDevice != null && leftDevice.GetPressDown(triggerButton))
         {
             if (LeftHand.GetComponent<GrabItemsBehaviour>().touchedObject != null)
             {
@@ -47,7 +51,7 @@ public class InputSender : MonoBehaviour
             }
         }
 
-        if (rightDevice != null && rightDevice.GetPress(triggerButton))
+        if (rightDevice != null && rightDevice.GetPressDown(triggerButton))
         {
             if (RightHand.GetComponent<GrabItemsBehaviour>().touchedObject != null)
             {
@@ -70,6 +74,18 @@ public class InputSender : MonoBehaviour
                 PlayerControls.Update.TriggerDropEvent(RightHand.GetComponent<GrabItemsBehaviour>().touchedObject.EntityId(), "right").FinishAndSend();
             }
         }
-
     }
+
+    void sendHeartbeats()
+    {
+        if (LeftHand.GetComponent<FixedJoint>().connectedBody != null)
+        {
+            PlayerControls.Update.TriggerGrabbingHeartbeatEvent(LeftHand.GetComponent<FixedJoint>().connectedBody.gameObject.EntityId()).FinishAndSend();
+        }
+        if (RightHand.GetComponent<FixedJoint>().connectedBody != null)
+        {
+            PlayerControls.Update.TriggerGrabbingHeartbeatEvent(RightHand.GetComponent<FixedJoint>().connectedBody.gameObject.EntityId()).FinishAndSend();
+        }
+    }
+
 }

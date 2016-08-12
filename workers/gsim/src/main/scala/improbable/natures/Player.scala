@@ -4,7 +4,7 @@ import improbable.corelibrary.transforms.TransformNature
 import improbable.papi.entity.EntityPrefab
 import improbable.papi.entity.behaviour.EntityBehaviourDescriptor
 import improbable.player.{LocalPlayerCheck, Name, PlayerControls}
-import improbable.behaviours.{DelegateLocalPlayerCheckToClientBehaviour, DelegatePlayerControlsToClientBehaviour, PrintNameBehaviour}
+import improbable.behaviours.{DelegateLocalPlayerCheckToClientBehaviour, DelegatePlayerControlsToClientBehaviour, PrintNameBehaviour, RequestClientControlBehaviour}
 import improbable.corelib.util.EntityOwner
 import improbable.math.Vector3d
 import improbable.papi.engine.EngineId
@@ -16,7 +16,8 @@ object Player extends NatureDescription {
   override def activeBehaviours: Set[EntityBehaviourDescriptor] = {
     Set(descriptorOf[PrintNameBehaviour],
       descriptorOf[DelegateLocalPlayerCheckToClientBehaviour],
-      descriptorOf[DelegatePlayerControlsToClientBehaviour]
+      descriptorOf[DelegatePlayerControlsToClientBehaviour],
+      descriptorOf[RequestClientControlBehaviour]
     )
   }
 
