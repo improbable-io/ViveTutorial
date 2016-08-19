@@ -43,9 +43,11 @@ public class InputReceiver : MonoBehaviour
     {
         if (target.Hand == "left")
         {
+            LeftHand.GetComponentInChildren<ToggleHandModel>().ClenchHand();
             LeftHand.GetComponent<FixedJoint>().connectedBody = IUniverse.Get(target.PickUpTargetId).UnderlyingGameObject.GetComponent<Rigidbody>();
         }
         else if (target.Hand == "right") {
+            RightHand.GetComponentInChildren<ToggleHandModel>().ClenchHand();
             RightHand.GetComponent<FixedJoint>().connectedBody = IUniverse.Get(target.PickUpTargetId).UnderlyingGameObject.GetComponent<Rigidbody>();
         }
         else
@@ -59,12 +61,13 @@ public class InputReceiver : MonoBehaviour
     {
         if (target.Hand == "left")
         {
-
+            LeftHand.GetComponentInChildren<ToggleHandModel>().RelaxHand();
             LeftHand.GetComponent<FixedJoint>().connectedBody.velocity = LeftHand.GetComponent<TrackPositionBehaviour>().SmoothedVelocity;
             LeftHand.GetComponent<FixedJoint>().connectedBody = null;
         }
         else if (target.Hand == "right")
         {
+            RightHand.GetComponentInChildren<ToggleHandModel>().RelaxHand();
             RightHand.GetComponent<FixedJoint>().connectedBody.velocity = RightHand.GetComponent<TrackPositionBehaviour>().SmoothedVelocity;
             RightHand.GetComponent<FixedJoint>().connectedBody = null;
         }

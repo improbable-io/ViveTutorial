@@ -1,4 +1,5 @@
-﻿using Improbable.Player;
+﻿using Improbable;
+using Improbable.Player;
 using Improbable.Unity.Common.Core.Math;
 using Improbable.Unity.Visualizer;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class InputSender : MonoBehaviour
     public GameObject RightHand;
 
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
+    private GameObject leftHandHeldObject;
+    private GameObject rightHandHeldObject;
 
     void Start() {
         //Maintaining authority over objects
@@ -45,33 +48,40 @@ public class InputSender : MonoBehaviour
         //Picking up objects
         if (leftDevice != null && leftDevice.GetPressDown(triggerButton))
         {
-            if (LeftHand.GetComponent<GrabItemsBehaviour>().touchedObject != null)
+            GameObject reachableObject = LeftHand.GetComponent<GrabItemsBehaviour>().GetClosestReachableObject();
+            if (reachableObject != null)
             {
-                PlayerControls.Update.TriggerPickUpEvent(LeftHand.GetComponent<GrabItemsBehaviour>().touchedObject.EntityId(), "left").FinishAndSend();
+                leftHandHeldObject = reachableObject;
+                PlayerControls.Update.TriggerPickUpEvent(leftHandHeldObject.EntityId(), "left").FinishAndSend();
             }
         }
 
         if (rightDevice != null && rightDevice.GetPressDown(triggerButton))
         {
-            if (RightHand.GetComponent<GrabItemsBehaviour>().touchedObject != null)
+            GameObject reachableObject = RightHand.GetComponent<GrabItemsBehaviour>().GetClosestReachableObject();
+            if (reachableObject != null)
             {
-                PlayerControls.Update.TriggerPickUpEvent(RightHand.GetComponent<GrabItemsBehaviour>().touchedObject.EntityId(), "right").FinishAndSend();
+                rightHandHeldObject = reachableObject;
+                PlayerControls.Update.TriggerPickUpEvent(rightHandHeldObject. EntityId(), "right").FinishAndSend();
             }
         }
 
         //Dropping objects
         if (leftDevice != null && leftDevice.GetPressUp(triggerButton))
         {
+            GameObject heldObject = LeftHand.GetComponent<GrabItemsBehaviour>().GetClosestReachableObject();
             if (LeftHand.GetComponent<FixedJoint>().connectedBody != null)
             {
-                PlayerControls.Update.TriggerDropEvent(LeftHand.GetComponent<GrabItemsBehaviour>().touchedObject.EntityId(), "left").FinishAndSend();
+                PlayerControls.Update.TriggerDropEvent(leftHandHeldObject.EntityId(), "left").FinishAndSend();
+                leftHandHeldObject = null;
             }
         }
         if (rightDevice != null && rightDevice.GetPressUp(triggerButton))
         {
             if (RightHand.GetComponent<FixedJoint>().connectedBody != null)
             {
-                PlayerControls.Update.TriggerDropEvent(RightHand.GetComponent<GrabItemsBehaviour>().touchedObject.EntityId(), "right").FinishAndSend();
+                PlayerControls.Update.TriggerDropEvent(rightHandHeldObject.EntityId(), "right").FinishAndSend();
+                rightHandHeldObject = null;
             }
         }
     }
