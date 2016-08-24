@@ -21,14 +21,25 @@ class ClientEntityLifeCycleManager(appWorld: AppWorld, logger: Logger) extends W
 
   private def workerConnected(msg: EngineConnected): Unit = {
     msg match {
-      case EngineConnected(clientId, EnginePlatform.UNITY_CLIENT_ENGINE, _) =>
-        spawnPlayer(clientId)
+      case EngineConnected(clientId, EnginePlatform.UNITY_CLIENT_ENGINE, meta) =>
+        val prefabToSpawn = "PlayerEnh"
+//        if (!meta.isEmpty() && !meta.contains("{}")) {
+//          val metaMap = meta.substring(1, meta.length - 1)
+//            .split(",")
+//            .map(_.split(":"))
+//            .map { case Array(k, v) => (k.substring(1, k.length-1), v.substring(1, v.length-1))}
+//            .toMap
+//          if (metaMap.contains("ClientPrefab")) {
+//            prefabToSpawn = metaMap.get("ClientPrefab").get
+//          }
+//        }
+        spawnPlayer(clientId, prefabToSpawn)
       case _ =>
     }
   }
 
-  private def spawnPlayer(clientId: EngineId): Unit = {
-    val playerEntityId = appWorld.entities.spawnEntity(Player(playerName = "Tolstoy", clientId))
+  private def spawnPlayer(clientId: EngineId, prefabToSpawn: String): Unit = {
+    val playerEntityId = appWorld.entities.spawnEntity(Player(playerName = "Tolstoy", clientId, prefabToSpawn))
     logger.info(s"ClientId $clientId connected. Spawning a Player with entityId $playerEntityId")
     clientIdToEntityIdMap += clientId -> playerEntityId
   }

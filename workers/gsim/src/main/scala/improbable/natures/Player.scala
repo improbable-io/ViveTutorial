@@ -21,7 +21,7 @@ object Player extends NatureDescription {
     )
   }
 
-  def apply(playerName: String, clientId: EngineId): NatureApplication = {
+  def apply(playerName: String, clientId: EngineId, prefabToSpawn: String): NatureApplication = {
     application(
       states = Seq(
         Name(playerName),
@@ -36,7 +36,7 @@ object Player extends NatureDescription {
           Vector3d(0,0,0))
       ),
       natures = Seq(
-        BaseNature(entityPrefab = EntityPrefab("Player"), isPhysical = true),
+        BaseNature(entityPrefab = EntityPrefab(prefabToSpawn), isPhysical = true),
         TransformNature()
       )
     )

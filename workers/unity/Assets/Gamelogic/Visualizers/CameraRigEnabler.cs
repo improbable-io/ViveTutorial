@@ -7,14 +7,26 @@ public class CameraRigEnabler : MonoBehaviour
 {
     [Require]
     protected LocalPlayerCheckWriter LocalPlayerChecker;
-    public GameObject CameraRig;
 
+    public bool UseVR = true;
+    public GameObject CameraRig;
+    public GameObject NonVRCamera;
 
     void OnEnable()
     {
-        if (CameraRig != null)
+        if (UseVR)
         {
-            CameraRig.SetActive(true);
+            if (CameraRig != null)
+            {
+                CameraRig.SetActive(true);
+            }
+
+        } else {
+            if (NonVRCamera != null)
+            {
+                NonVRCamera.SetActive(true);
+            }
         }
+       
     }
 }
