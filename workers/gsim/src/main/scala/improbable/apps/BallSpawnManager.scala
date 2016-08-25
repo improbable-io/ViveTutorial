@@ -13,5 +13,4 @@ class BallSpawnManager(appWorld: AppWorld) extends WorldApp {
   } {
     appWorld.entities.spawnEntity(Ball(Coordinates(i,10,j)))
   }
-
 }

@@ -4,8 +4,10 @@ package schema.improbable.sounds;
 import "improbable/entity_state.proto";
 
 message SamplesData {
+  optional int32 channels =1;
+  optional int32 frequency = 2;
   // The samples are floats ranging from -1.0f to 1.0f.
-  repeated float samples = 1;
+  repeated float samples = 3;
 }
 
 message SoundData {
