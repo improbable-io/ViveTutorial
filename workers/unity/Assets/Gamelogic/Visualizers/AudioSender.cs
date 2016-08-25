@@ -45,6 +45,22 @@ public class AudioSender: MonoBehaviour
         }
     }
 
+    IEnumerator ShowMessage(string message, float delay)
+    {
+        text = message;
+        showNotification = true;
+        yield return new WaitForSeconds(delay);
+        showNotification = false;
+    }
+
+    private string text = "";
+    private bool showNotification = false;
+
+    void OnGUI()
+    {
+        if (showNotification)
+            GUI.Label(new Rect(0, 300, 200, 100), text);
+    }
 
     void Update()
     {
@@ -53,12 +69,16 @@ public class AudioSender: MonoBehaviour
             // Start Arguments: DeviceName, Loop, LengthSec, Frequency.
             src.clip = Microphone.Start(null, true, 10, FREQUENCY);
             finishtOffset = -1;
+
+            StartCoroutine(ShowMessage("Started Recording", 2));
         }
 
         if (Input.GetKeyUp(KeyCode.F2))
         {
             finishtOffset = Microphone.GetPosition(null);
             Microphone.End(null);
+
+            StartCoroutine(ShowMessage("Ended Recording", 2));
         }
     }
 }
