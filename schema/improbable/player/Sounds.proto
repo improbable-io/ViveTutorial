@@ -1,0 +1,17 @@
+syntax = "proto2";
+package schema.improbable.sounds;
+
+import "improbable/entity_state.proto";
+
+message SamplesData {
+  // The samples are floats ranging from -1.0f to 1.0f.
+  repeated float samples = 1;
+}
+
+message SoundData {
+  repeated SamplesData samplesEvent = 1 [(improbable.state_event) = true];
+}
+
+extend improbable.EntityState {
+  optional SoundData sounds = 1011;
+}

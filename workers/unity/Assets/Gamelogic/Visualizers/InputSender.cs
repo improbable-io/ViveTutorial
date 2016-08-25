@@ -110,7 +110,7 @@ public class InputSender : MonoBehaviour
 
     private void NonVRUpdate()
     {
-        if (NonVRCamera.transform.gameObject.activeSelf)
+        if (NonVRCamera.transform.gameObject.activeSelf && PlayerControls != null)
         {
             PlayerControls.Update
                 .HeadPosition(NonVRCamera.transform.position.ToNativeVector())
@@ -145,8 +145,6 @@ public class InputSender : MonoBehaviour
         var moveDirection = m_MoveDir;
         if (moveDirection.magnitude >= 0.1)
         {
-            //m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
-            Debug.Log(MovementSpeed + " Sent Moving: " + moveDirection);
             if (PlayerControls != null)
             {
                 // Trigger spatial movement.

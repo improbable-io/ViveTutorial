@@ -4,10 +4,11 @@ import improbable.corelibrary.transforms.TransformNature
 import improbable.papi.entity.EntityPrefab
 import improbable.papi.entity.behaviour.EntityBehaviourDescriptor
 import improbable.player.{LocalPlayerCheck, Name, PlayerControls}
-import improbable.behaviours.{DelegateLocalPlayerCheckToClientBehaviour, DelegatePlayerControlsToClientBehaviour, PrintNameBehaviour, RequestClientControlBehaviour}
+import improbable.behaviours._
 import improbable.corelib.util.EntityOwner
 import improbable.math.Vector3d
 import improbable.papi.engine.EngineId
+import improbable.sounds.Sounds
 
 object Player extends NatureDescription {
 
@@ -17,6 +18,7 @@ object Player extends NatureDescription {
     Set(descriptorOf[PrintNameBehaviour],
       descriptorOf[DelegateLocalPlayerCheckToClientBehaviour],
       descriptorOf[DelegatePlayerControlsToClientBehaviour],
+      descriptorOf[DelegateSoundsToClientBehaviour],
       descriptorOf[RequestClientControlBehaviour]
     )
   }
@@ -33,7 +35,8 @@ object Player extends NatureDescription {
           Vector3d(0,0,0),
           Vector3d(0,0,0),
           Vector3d(0,0,0),
-          Vector3d(0,0,0))
+          Vector3d(0,0,0)),
+        Sounds()
       ),
       natures = Seq(
         BaseNature(entityPrefab = EntityPrefab(prefabToSpawn), isPhysical = true),

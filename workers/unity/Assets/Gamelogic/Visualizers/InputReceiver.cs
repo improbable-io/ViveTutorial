@@ -8,9 +8,9 @@ using UnityEngine;
 
 public class InputReceiver : MonoBehaviour
 {
-
     public GameObject LeftHand;
     public GameObject RightHand;
+  
 
     [Require]
     protected PlayerControlsReader PlayerControls;
