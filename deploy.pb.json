@@ -2,7 +2,7 @@
   "javaparams": [
     {
       "name": "-DCLOUD_LAUNCH_CONFIG",
-      "value": "improbable.launcher.SpatialOSLauncherWithAutomaticWorkers"
+      "value": "improbable.launcher.AutomaticWorkerStartup"
     },
     {
       "name": "-DIGNORE_FLAGS_IN_GAME_PROPERTIES_FILE",
