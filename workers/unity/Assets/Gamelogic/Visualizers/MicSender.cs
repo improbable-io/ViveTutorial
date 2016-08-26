@@ -4,13 +4,12 @@ using UnityEngine;
 using System.Collections;
 using Improbable.Util.Collections;
 
-[RequireComponent(typeof(AudioSource))]
 public class MicSender : MonoBehaviour
 {
     [Require]
     protected SoundsWriter spatialSounds;
 
-    private AudioSource src;
+    private AudioClip clip;
     private int lastSampleOffset;
     private int finishtOffset;
 
@@ -18,7 +17,7 @@ public class MicSender : MonoBehaviour
 
     void Start()
     {
-        src = GetComponent<AudioSource>();
+        clip = null;
         lastSampleOffset = 0;
         finishtOffset = -1;
     }
@@ -32,14 +31,14 @@ public class MicSender : MonoBehaviour
 
             if (diff < 0)
             {
-                diff = (src.clip.samples - lastSampleOffset) + offset;
+                diff = (clip.samples - lastSampleOffset) + offset;
             }
 
             if (diff > 0)
             {
-                float[] newSamples = new float[diff * src.clip.channels];
-                src.clip.GetData(newSamples, lastSampleOffset);
-                spatialSounds.Update.TriggerSamplesEvent(src.clip.channels, src.clip.frequency, new ReadOnlyList<float>(newSamples)).FinishAndSend();
+                float[] newSamples = new float[diff * clip.channels];
+                clip.GetData(newSamples, lastSampleOffset);
+                spatialSounds.Update.TriggerSamplesEvent(clip.channels, clip.frequency, new ReadOnlyList<float>(newSamples)).FinishAndSend();
                 lastSampleOffset = offset;
             }
         }
@@ -67,7 +66,7 @@ public class MicSender : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1))
         {
             // Start Arguments: DeviceName, Loop, LengthSec, Frequency.
-            src.clip = Microphone.Start(null, true, 10, FREQUENCY);
+            clip = Microphone.Start(null, true, 10, FREQUENCY);
             finishtOffset = -1;
 
             StartCoroutine(ShowMessage("Started Recording", 2));

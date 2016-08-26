@@ -8,7 +8,7 @@ import improbable.behaviours._
 import improbable.corelib.util.EntityOwner
 import improbable.math.Vector3d
 import improbable.papi.engine.EngineId
-import improbable.sounds.Sounds
+import improbable.sounds.{RadioControl, Sounds}
 
 object Player extends NatureDescription {
 
@@ -19,6 +19,7 @@ object Player extends NatureDescription {
       descriptorOf[DelegateLocalPlayerCheckToClientBehaviour],
       descriptorOf[DelegatePlayerControlsToClientBehaviour],
       descriptorOf[DelegateSoundsToClientBehaviour],
+      descriptorOf[RadioControlBehaviour],
       descriptorOf[RequestClientControlBehaviour]
     )
   }
@@ -36,7 +37,8 @@ object Player extends NatureDescription {
           Vector3d(0,0,0),
           Vector3d(0,0,0),
           Vector3d(0,0,0)),
-        Sounds()
+        Sounds(),
+        RadioControl(-1)
       ),
       natures = Seq(
         BaseNature(entityPrefab = EntityPrefab(prefabToSpawn), isPhysical = true),
