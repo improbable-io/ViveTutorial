@@ -1,2 +1,6 @@
 package improbable.player;
 
+component Name {
+  id = 1000;
+  string value = 1;
+}
