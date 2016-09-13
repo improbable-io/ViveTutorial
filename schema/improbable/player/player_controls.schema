@@ -1,0 +1,18 @@
+package improbable.player;
+
+type MovementDirectionData {
+  Vector3d movement_direction = 1;
+}
+
+component PlayerControls {
+  id = 1002;
+  event MovementDirectionData move_event;
+
+  Vector3d left_hand_position = 2;
+  Vector3d left_hand_rotation = 3;
+  Vector3d right_hand_position = 4;
+  Vector3d right_hand_rotation = 5;
+  Vector3d head_position = 6;
+  Vector3d head_rotation = 7;
+}
+
